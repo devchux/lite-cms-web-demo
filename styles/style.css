@@ -14,11 +14,11 @@ body {
 
 a {
   color: rgb(9, 140, 200);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {
-  color: #86db9f;
+  color: #1472ffc5;
   text-decoration: none;
 }
 
