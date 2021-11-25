@@ -8,7 +8,6 @@ import "../styles/boxicons/css/boxicons.min.css";
 import "../styles/remixicon/remixicon.css";
 import "../styles/swiper-bundle.min.css";
 import "../styles/style.css";
-import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
