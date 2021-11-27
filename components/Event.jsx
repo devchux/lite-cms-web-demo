@@ -22,8 +22,8 @@ const Event = () => {
               />
               <div className="article-content">
                 <div className="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Web Development</h4>
-                  <p className="price">$169</p>
+                  <h4>Feb 21, 2022</h4>
+                  <p className="price">9:30 am</p>
                 </div>
 
                 <h3>
@@ -35,19 +35,7 @@ const Event = () => {
                 </p>
                 <div className="trainer d-flex justify-content-between align-items-center">
                   <div className="trainer-profile d-flex align-items-center">
-                    <Image
-                      src="/assets/img/trainers/trainer-1.jpg"
-                      className="img-fluid"
-                      width="100%"
-                      height="100%"
-                      layout="responsive"
-                      alt=""
-                    />
                     <span>Antonio</span>
-                  </div>
-                  <div className="trainer-rank d-flex align-items-center">
-                    <i className="bx bx-user"></i>&nbsp;50 &nbsp;&nbsp;
-                    <i className="bx bx-heart"></i>&nbsp;65
                   </div>
                 </div>
               </div>
@@ -66,8 +54,8 @@ const Event = () => {
               />
               <div className="article-content">
                 <div className="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Marketing</h4>
-                  <p className="price">$250</p>
+                  <h4>Dec 5, 2021</h4>
+                  <p className="price">12:00 pm</p>
                 </div>
 
                 <h3>
@@ -79,19 +67,7 @@ const Event = () => {
                 </p>
                 <div className="trainer d-flex justify-content-between align-items-center">
                   <div className="trainer-profile d-flex align-items-center">
-                    <Image
-                      src="/assets/img/trainers/trainer-2.jpg"
-                      className="img-fluid"
-                      width="100%"
-                      height="100%"
-                      layout="responsive"
-                      alt=""
-                    />
                     <span>Lana</span>
-                  </div>
-                  <div className="trainer-rank d-flex align-items-center">
-                    <i className="bx bx-user"></i>&nbsp;35 &nbsp;&nbsp;
-                    <i className="bx bx-heart"></i>&nbsp;42
                   </div>
                 </div>
               </div>
@@ -110,8 +86,8 @@ const Event = () => {
               />
               <div className="article-content">
                 <div className="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Content</h4>
-                  <p className="price">$180</p>
+                  <h4>Jan 2, 2022</h4>
+                  <p className="price">10:00 am</p>
                 </div>
 
                 <h3>
@@ -123,19 +99,7 @@ const Event = () => {
                 </p>
                 <div className="trainer d-flex justify-content-between align-items-center">
                   <div className="trainer-profile d-flex align-items-center">
-                    <Image
-                      src="/assets/img/trainers/trainer-3.jpg"
-                      className="img-fluid"
-                      width="100%"
-                      height="100%"
-                      layout="responsive"
-                      alt=""
-                    />
                     <span>Brandon</span>
-                  </div>
-                  <div className="trainer-rank d-flex align-items-center">
-                    <i className="bx bx-user"></i>&nbsp;20 &nbsp;&nbsp;
-                    <i className="bx bx-heart"></i>&nbsp;85
                   </div>
                 </div>
               </div>

@@ -56,11 +56,15 @@ const Footer = () => {
               <ul>
                 <li>
                   <i className="bx bx-chevron-right"></i>{" "}
-                  <Link href="/videos">Videos</Link>
+                  <Link href="/audios">Audios</Link>
                 </li>
                 <li>
                   <i className="bx bx-chevron-right"></i>{" "}
-                  <Link href="/audios">Audios</Link>
+                  <Link href="/books">Books</Link>
+                </li>
+                <li>
+                  <i className="bx bx-chevron-right"></i>{" "}
+                  <Link href="/videos">Videos</Link>
                 </li>
               </ul>
             </div>

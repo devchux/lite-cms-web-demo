@@ -45,6 +45,9 @@ const Header = () => {
                   <Link href="/audios">Audios</Link>
                 </li>
                 <li>
+                  <Link href="/books">Books</Link>
+                </li>
+                <li>
                   <Link href="/videos">Videos</Link>
                 </li>
               </ul>

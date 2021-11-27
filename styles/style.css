@@ -457,7 +457,7 @@ section {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #9ae1af;
+  background: rgb(9, 140, 200);
   margin: 4px 10px;
 }
 .section-title p {
@@ -754,6 +754,9 @@ section {
 .blog {
   padding: 40px 0 20px 0;
 }
+.blog.no-padding {
+  padding: 0;
+}
 .blog .entry {
   padding: 30px;
   margin-bottom: 60px;
@@ -769,6 +772,9 @@ section {
   font-weight: bold;
   padding: 0;
   margin: 0 0 20px 0;
+}
+.blog.no-padding .entry .entry-title {
+  font-size: 20px;
 }
 .blog .entry .entry-title a {
   color: #111111;
@@ -1014,30 +1020,30 @@ section {
 .blog .blog-comments .reply-form .btn-primary:hover {
   background-color: #1e1e1e;
 }
-.blog .blog-pagination {
+.blog-pagination {
   color: #444444;
 }
-.blog .blog-pagination ul {
+.blog-pagination ul {
   display: flex;
   padding: 0;
   margin: 0;
   list-style: none;
 }
-.blog .blog-pagination li {
+.blog-pagination li {
   margin: 0 5px;
   transition: 0.3s;
 }
-.blog .blog-pagination li a {
+.blog-pagination li a {
   color: #111111;
   padding: 7px 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.blog .blog-pagination li.active, .blog .blog-pagination li:hover {
+.blog-pagination li.active, .blog-pagination li:hover {
   background: rgb(9, 140, 200);
 }
-.blog .blog-pagination li.active a, .blog .blog-pagination li:hover a {
+.blog-pagination li.active a, .blog-pagination li:hover a {
   color: #fff;
 }
 .blog .sidebar {
@@ -1639,6 +1645,112 @@ section {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/*------------------------------------------------------------
+# Books
+-------------------------------------------------------------*/
+.books .books-item {
+  margin-bottom: 30px;
+}
+.books #books-flters {
+  padding: 0;
+  margin: 0 auto 20px auto;
+  list-style: none;
+  text-align: center;
+}
+.books #books-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 15px 10px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #444444;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 3px;
+}
+.books #books-flters li:hover, .books #books-flters li.filter-active {
+  color: #fff;
+  background: #e03a3c;
+}
+.books #books-flters li:last-child {
+  margin-right: 0;
+}
+.books .books-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: rgba(17, 17, 17, 0.6);
+}
+.books .books-wrap::before {
+  content: "";
+  background: rgba(17, 17, 17, 0.6);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+.books .books-wrap img {
+  transition: all ease-in-out 0.3s;
+}
+.books .books-wrap .books-info {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 20px;
+}
+.books .books-wrap .books-info h4 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+}
+.books .books-wrap .books-info p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+}
+.books .books-wrap .books-links {
+  text-align: center;
+  z-index: 4;
+}
+.books .books-wrap .books-links a {
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 5px 0 0;
+  font-size: 28px;
+  display: inline-block;
+  transition: 0.3s;
+}
+.books .books-wrap .books-links a:hover {
+  color: #fff;
+}
+.books .books-wrap:hover::before {
+  opacity: 1;
+}
+.books .books-wrap:hover img {
+  transform: scale(1.2);
+}
+.books .books-wrap:hover .books-info {
+  opacity: 1;
 }
 
 /*--------------------------------------------------------------

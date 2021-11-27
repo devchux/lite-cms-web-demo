@@ -24,7 +24,7 @@ const About = () => {
               WHAT WE DO
             </h3>
             <br />
-            <p className="fst-italic">
+            <p className="">
               OYDEI organizes a weekly public and community youth development
               and counselling programme for youths in her Centre for Youth
               Development and Counselling at Nsukka, Enugu State Nigeria.
