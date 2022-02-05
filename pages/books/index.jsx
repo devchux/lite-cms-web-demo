@@ -1,21 +1,22 @@
 import Image from "next/image";
+import axios from "axios"
+import Breadcrumb from "../../components/Breadcrumb";
 
-const Books = ({ books: { data } }) => {
+const books = ({ data }) => {
   return (
-    <section id="popular-articles" className="articles">
-      <div className="container" data-aos="fade-up">
-        <div className="section-title">
-          <h2>Books</h2>
-          <p>Recent Books</p>
-        </div>
-        <div className="books">
-          <div
-            className="row books-container"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            {data.length
-              ? data.map((book) => (
+    <div className="books-page">
+      <Breadcrumb title="Books" />
+
+      <section id="events" className="events">
+        <div className="container" data-aos="fade-up">
+          <div className="books">
+            <div
+              className="row books-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              {data?.books?.data.length ?
+                data?.books.data.map((book) => (
                   <div
                     key={book.id}
                     className="col-lg-4 col-md-6 books-item filter-app"
@@ -39,13 +40,26 @@ const Books = ({ books: { data } }) => {
                       </div>
                     </div>
                   </div>
-                ))
-              : ""}
+                )): ""}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
-export default Books;
+export const getServerSideProps = async (context) => {
+  const { page } = context.query;
+  const { data } = await axios.get(
+    `${process.env.BE_URL}/books?page=${Number(page - 1) || 0}&size=10`
+  );
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
+export default books;

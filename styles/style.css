@@ -1124,7 +1124,6 @@ section {
 }
 .blog .sidebar .recent-posts h4 {
   font-size: 15px;
-  margin-left: 95px;
   font-weight: bold;
 }
 .blog .sidebar .recent-posts h4 a {
@@ -1136,7 +1135,6 @@ section {
 }
 .blog .sidebar .recent-posts time {
   display: block;
-  margin-left: 95px;
   font-style: italic;
   font-size: 14px;
   color: #aaaaaa;
@@ -1260,14 +1258,14 @@ section {
 /*--------------------------------------------------------------
 # Cource Details
 --------------------------------------------------------------*/
-.article-details h3 {
+.course-details h3 {
   font-size: 24px;
   margin: 30px 0 15px 0;
   font-weight: 700;
   position: relative;
   padding-bottom: 10px;
 }
-.article-details h3:before {
+.course-details h3:before {
   content: "";
   position: absolute;
   display: block;
@@ -1277,7 +1275,7 @@ section {
   bottom: 0;
   left: 0;
 }
-.article-details h3:after {
+.course-details h3:after {
   content: "";
   position: absolute;
   display: block;
@@ -1287,22 +1285,22 @@ section {
   bottom: 0;
   left: 0;
 }
-.article-details .article-info {
+.course-details .course-info {
   background: #f6f7f6;
   padding: 10px 15px;
   margin-bottom: 15px;
 }
-.article-details .article-info h5 {
+.course-details .course-info h5 {
   font-weight: 400;
   font-size: 16px;
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
-.article-details .article-info p {
+.course-details .course-info p {
   margin: 0;
   font-weight: 600;
 }
-.article-details .article-info a {
+.course-details .course-info a {
   color: #657a6d;
 }
 

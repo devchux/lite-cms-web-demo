@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 
+import 'react-h5-audio-player/lib/styles.css';
 import "../styles/animate.min.css";
 import "../styles/aos.css";
 import "../styles/bootstrap.min.css";

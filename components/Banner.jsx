@@ -17,8 +17,8 @@ const Banner = () => {
           Empowerment Initiative
         </h1>
         <h2>Centre for Youth Development and Counselling</h2>
-        <Link href="/programmes" passHref>
-          <span className="btn-get-started">Our Programs</span>
+        <Link href="/programs" passHref>
+          <span className="btn-get-started">Enrol for a class</span>
         </Link>
       </div>
     </section>

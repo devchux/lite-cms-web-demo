@@ -1,21 +1,21 @@
-import Image from "next/image";
+import Image from "next/image"
+import Breadcrumb from "../../components/Breadcrumb"
 
-const Books = ({ books: { data } }) => {
+const BookDetails = () => {
   return (
-    <section id="popular-articles" className="articles">
-      <div className="container" data-aos="fade-up">
-        <div className="section-title">
-          <h2>Books</h2>
-          <p>Recent Books</p>
-        </div>
-        <div className="books">
-          <div
-            className="row books-container"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            {data.length
-              ? data.map((book) => (
+    <div className="books-page">
+      <Breadcrumb title="Books" />
+
+      <section id="events" className="events">
+        <div className="container" data-aos="fade-up">
+          <div className="books">
+            <div
+              className="row books-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              {data?.books?.data.length ?
+                data?.books.data.map((book) => (
                   <div
                     key={book.id}
                     className="col-lg-4 col-md-6 books-item filter-app"
@@ -39,13 +39,13 @@ const Books = ({ books: { data } }) => {
                       </div>
                     </div>
                   </div>
-                ))
-              : ""}
+                )): ""}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+    </div>
+  )
+}
 
-export default Books;
+export default BookDetails
