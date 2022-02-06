@@ -43,7 +43,7 @@ const volunteer = () => {
             ></textarea>
           </div><br />
           <div className="text-center">
-            <button type="submit">Send Message</button>
+            <button type="submit">Submit</button>
           </div>
         </form>
       </section>

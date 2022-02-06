@@ -2,7 +2,11 @@ import Image from "next/image";
 import ErrorPage from "next/error";
 import parse from "html-react-parser";
 import axios from "axios";
+import Disqus from "disqus-react";
 import Breadcrumb from "../../components/Breadcrumb";
+import dynamic from "next/dynamic";
+
+const Speech = dynamic(() => import("react-speech"), { ssr: false });
 
 const BlogDetail = ({ data, recentPosts }) => {
   if (!data) return <ErrorPage statusCode={404} />;
@@ -30,7 +34,6 @@ const BlogDetail = ({ data, recentPosts }) => {
                     {data.article.title}
                   </a>
                 </h2>
-
                 <div className="entry-meta">
                   <ul>
                     <li className="d-flex align-items-center">
@@ -55,30 +58,103 @@ const BlogDetail = ({ data, recentPosts }) => {
                   </ul>
                 </div>
 
-                <div className="entry-content">{parse(data.article.body)}</div>
-
-                <div className="entry-footer">
-                  <i className="bi bi-folder"></i>
-                  <ul className="cats">
-                    <li>
-                      <a href="#">Business</a>
-                    </li>
-                  </ul>
-
-                  <i className="bi bi-tags"></i>
-                  <ul className="tags">
-                    <li>
-                      <a href="#">Creative</a>
-                    </li>
-                    <li>
-                      <a href="#">Tips</a>
-                    </li>
-                    <li>
-                      <a href="#">Marketing</a>
-                    </li>
-                  </ul>
+                <p
+                  className="mt-3"
+                  style={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  Listen to this article
+                </p>
+                {typeof window !== "undefined" && (
+                  <Speech
+                    stop={true}
+                    pause={true}
+                    resume={true}
+                    text={data.article.body}
+                    styles={{
+                      container: {
+                        width: "100%",
+                      },
+                      text: {
+                        width: "100%",
+                        display: "",
+                      },
+                      play: {
+                        hover: {
+                          backgroundColor: "GhostWhite",
+                        },
+                        button: {
+                          width: "34px",
+                          height: "34px",
+                          cursor: "pointer",
+                          pointerEvents: "none",
+                          outline: "none",
+                          backgroundColor: "Gainsboro",
+                          border: "solid 1px rgba(255,255,255,1)",
+                          borderRadius: 6,
+                        },
+                      },
+                      stop: {
+                        hover: {
+                          backgroundColor: "GhostWhite",
+                        },
+                        button: {
+                          width: "34px",
+                          height: "34px",
+                          cursor: "pointer",
+                          pointerEvents: "none",
+                          outline: "none",
+                          backgroundColor: "Gainsboro",
+                          border: "solid 1px rgba(255,255,255,1)",
+                          borderRadius: 6,
+                        },
+                      },
+                      pause: {
+                        hover: {
+                          backgroundColor: "GhostWhite",
+                        },
+                        button: {
+                          width: "34px",
+                          height: "34px",
+                          cursor: "pointer",
+                          pointerEvents: "none",
+                          outline: "none",
+                          backgroundColor: "Gainsboro",
+                          border: "solid 1px rgba(255,255,255,1)",
+                          borderRadius: 6,
+                        },
+                      },
+                      resume: {
+                        hover: {
+                          backgroundColor: "GhostWhite",
+                        },
+                        button: {
+                          width: "34px",
+                          height: "34px",
+                          cursor: "pointer",
+                          pointerEvents: "none",
+                          outline: "none",
+                          backgroundColor: "Gainsboro",
+                          border: "solid 1px rgba(255,255,255,1)",
+                          borderRadius: 6,
+                        },
+                      },
+                    }}
+                  />
+                )}
+                <div className="mt-5 entry-content">
+                  {parse(data.article.body)}
                 </div>
               </article>
+              <Disqus.DiscussionEmbed
+                shortname="otufoundation"
+                config={{
+                  url: `http://localhost:3000/articles/${data.article.slug}`,
+                  identifier: data.article.id,
+                  title: data.article.title,
+                }}
+              />
             </div>
 
             <div className="col-lg-4">

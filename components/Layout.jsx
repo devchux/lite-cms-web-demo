@@ -27,6 +27,7 @@ const Layout = ({ children }) => {
       <Script src="/assets/vendor/php-email-form/validate.js" />
       <Script src="/assets/vendor/purecounter/purecounter.js" />
       <Script src="/assets/vendor/swiper/swiper-bundle.min.js" />
+      <Script src="https://popupsmart.com/freechat.js"></Script>
       <Script src="/assets/js/main.js" />
     </Fragment>
   );

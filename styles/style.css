@@ -811,6 +811,7 @@ section {
 }
 .blog .entry .entry-content p {
   line-height: 24px;
+  color: #000;
 }
 .blog .entry .entry-content .read-more {
   -moz-text-align-last: right;

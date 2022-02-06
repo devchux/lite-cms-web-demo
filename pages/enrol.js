@@ -40,7 +40,7 @@ const enrol = () => {
                 The classes are organized periodically in our offices, schools,
                 and institutions, and remotely on YouTube, WhatsApp, Instagram,
                 Zoom, Facebook, and Telegram. If you are interested, fill the
-                form on this page to register.
+                form below to register.
               </p>
               <p>
                 N/B: We are also available to run our mentorship class in your
@@ -153,11 +153,8 @@ const enrol = () => {
           </div>
         </div>
       </section>
-      <section
-        id="contact"
-        className="container contact"
-        data-aos="fade-up">
-        <h3 className="text-center">Fill the form to enrol</h3>
+      <section id="contact" className="container contact" data-aos="fade-up">
+        <h3 className="my-5">Fill the form to enrol</h3>
         <form method="post" role="form" className="w-50 php-email-form">
           <div className="form-group">
             <input
@@ -187,22 +184,35 @@ const enrol = () => {
           </div>
           <br />
           <div className="form-group">
-            <input type="radio" name="classTitle" /> Counselling
+          <label>Select class:</label><br /><br />
             <input
               type="radio"
               name="classTitle"
+              style={{ height: "fit-content" }}
+            />{" "}
+            Counselling
+            <br /><br />
+            <input
+              type="radio"
+              name="classTitle"
+              style={{ height: "fit-content" }}
             />{" "}
             Guidance
+            <br /><br />
             <input
               type="radio"
               name="classTitle"
+              style={{ height: "fit-content" }}
             />{" "}
             Teaching
+            <br /><br />
             <input
               type="radio"
               name="classTitle"
+              style={{ height: "fit-content" }}
             />{" "}
             Mentorship
+            <br />
           </div>
           <br />
           <div className="text-center">

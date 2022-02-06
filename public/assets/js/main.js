@@ -87,6 +87,30 @@
   if (preloader) {
     window.addEventListener("load", () => {
       preloader.remove();
+      window.start.init({
+        title: "Hi, there ✌️",
+        message:
+          "How may we help you? Select any communication platform of your choice from the icons provided above.",
+        color: "#1C86FA",
+        position: "left",
+        placeholder: "Enter your message",
+        withText: "Write with",
+        viaWhatsapp: "Or write us directly via Whatsapp",
+        gty: "Go to your",
+        awu: "and write us",
+        connect: "Connect now",
+        button: "Write us",
+        device: "everywhere",
+        logo: "https://d2r80wdbkwti6l.cloudfront.net/vsgGNEmAuhPz7Jc1SqQBOXeBcvWWZSIX.jpg",
+        person:
+          "https://d2r80wdbkwti6l.cloudfront.net/EpqsRZpI6LnBO1eLHAbl2aMfHuB1UeYI.jpg",
+        services: [
+          { name: "whatsapp", content: "+2348035599525" },
+          { name: "mail", content: "o.youthdei@gmail.com" },
+          { name: "phone", content: "+2348035599525" },
+          { name: "sms", content: "+2348035599525" },
+        ],
+      });
     });
   }
 
