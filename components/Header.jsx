@@ -58,6 +58,9 @@ const Header = () => {
           </ul>
           <i className="bi bi-list mobile-nav-toggle"></i>
         </nav>
+        <Link href="/enrol" passHref>
+          <a className="get-started-btn">Enrol for a class</a>
+        </Link>
       </div>
     </header>
   );
