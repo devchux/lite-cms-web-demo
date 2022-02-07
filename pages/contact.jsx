@@ -1,6 +1,49 @@
+import { useState } from "react";
 import Breadcrumb from "../components/Breadcrumb";
+import axios from "axios";
 
-const contact = () => {
+const Contact = () => {
+  const [inputs, setInputs] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (key, value) => {
+    setInputs({ ...inputs, [key]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess(false);
+    try {
+      await axios.post(
+        "http://localhost:8000/api/contacts",
+        inputs
+      );
+      setSuccess(true);
+      setLoading(false);
+      setInputs({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      if (error.response) {
+        setError(error.response.data);
+      } else {
+        console.error(error);
+        setError(error.message);
+      }
+    }
+  };
   return (
     <div className="contact-page">
       <Breadcrumb title="Contact Us" />
@@ -42,10 +85,10 @@ const contact = () => {
 
             <div className="col-lg-8 mt-5 mt-lg-0">
               <form
-                action="forms/contact.php"
                 method="post"
                 role="form"
                 className="php-email-form"
+                onSubmit={handleSubmit}
               >
                 <div className="row">
                   <div className="col-md-6 form-group">
@@ -55,6 +98,10 @@ const contact = () => {
                       className="form-control"
                       id="name"
                       placeholder="Your Name"
+                      value={inputs.name}
+                      onChange={({ target: { value } }) =>
+                        handleChange("name", value)
+                      }
                       required
                     />
                   </div>
@@ -65,6 +112,10 @@ const contact = () => {
                       name="email"
                       id="email"
                       placeholder="Your Email"
+                      value={inputs.email}
+                      onChange={({ target: { value } }) =>
+                        handleChange("email", value)
+                      }
                       required
                     />
                   </div>
@@ -76,6 +127,10 @@ const contact = () => {
                     name="subject"
                     id="subject"
                     placeholder="Subject"
+                    value={inputs.subject}
+                    onChange={({ target: { value } }) =>
+                      handleChange("subject", value)
+                    }
                     required
                   />
                 </div>
@@ -85,15 +140,23 @@ const contact = () => {
                     name="message"
                     rows="5"
                     placeholder="Message"
+                    value={inputs.message}
+                    onChange={({ target: { value } }) =>
+                      handleChange("message", value)
+                    }
                     required
                   ></textarea>
                 </div>
                 <div className="my-3">
-                  <div className="loading">Loading</div>
-                  <div className="error-message"></div>
-                  <div className="sent-message">
-                    Your message has been sent. Thank you!
-                  </div>
+                  {loading ? <div className="loading">Loading</div> : ""}
+                  {error ? <div className="error-message">{error}</div> : ""}
+                  {success ? (
+                    <div className="sent-message">
+                      Your message has been sent. Thank you!
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="text-center">
                   <button type="submit">Send Message</button>
@@ -107,4 +170,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;
