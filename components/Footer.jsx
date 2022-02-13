@@ -38,7 +38,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <i className="bx bx-chevron-right"></i>{" "}
-                  <Link href="programs">Programs</Link>
+                  <Link href="/programs">Programs</Link>
                 </li>
                 <li>
                   <i className="bx bx-chevron-right"></i>{" "}

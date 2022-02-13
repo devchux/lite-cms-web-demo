@@ -1,15 +1,18 @@
 import axios from "axios";
 import ErrorPage from "next/error";
+import { useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
 import Breadcrumb from "../../components/Breadcrumb";
 
-const audioList = ({ data }) => {
-  if (!data) return <ErrorPage statusCode={404} />
+const AudioList = ({ data }) => {
+  const [error, setError] = useState("");
+  if (!data) return <ErrorPage statusCode={404} />;
   return (
     <div className="audio-list-page">
       <Breadcrumb title="Audios" />
       <section id="blog" className="blog">
         <div className="container" data-aos="fade-up">
+          {error ? <div className="error-message">{error}</div> : ""}
           <div className="row">
             {data.audios?.data.length
               ? data.audios.data.map((audio) => (
@@ -18,7 +21,59 @@ const audioList = ({ data }) => {
                       <div className="card-body">
                         <h6 className="card-title">{audio.title}</h6>
                         <AudioPlayer src={audio.audioUrl} />
-                        <button type="button" className="btn btn-primary my-2">Info</button>
+                        <button
+                          type="button"
+                          className="btn btn-primary my-2"
+                          data-bs-toggle="modal"
+                          data-bs-target={`#${audio.slug}`}
+                        >
+                          Info
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      className="modal fade"
+                      id={audio.slug}
+                      tabIndex="-1"
+                      data-bs-backdrop="false"
+                      data-bs-keyboard="false"
+                      aria-labelledby="staticBackdropLabel"
+                      aria-hidden="true"
+                      data-backdrop="false"
+                    >
+                      <div className="modal-dialog">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <button
+                              type="button"
+                              className="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div className="modal-body">
+                            <pre style={{ fontFamily: "inherit" }}>
+                              {audio.description}
+                            </pre>
+                          </div>
+                          <div className="modal-footer">
+                            <button
+                              type="button"
+                              className="btn btn-secondary"
+                              data-bs-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <a
+                              href={`https://res.cloudinary.com/dcrshimso/raw/upload/fl_attachment/v1643912410/${audio.publicId}`}
+                              target="_blank"
+                              className="btn btn-primary"
+                              rel="noreferrer"
+                            >
+                              Download
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -48,9 +103,9 @@ export const getServerSideProps = async ({ query, params, res }) => {
   } catch {
     res.statusCode = 404;
     return {
-      props: {}
+      props: {},
     };
   }
 };
 
-export default audioList;
+export default AudioList;

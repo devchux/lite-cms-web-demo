@@ -1,6 +1,7 @@
 import Image from "next/image";
 import axios from "axios"
 import Breadcrumb from "../../components/Breadcrumb";
+import Paginate from "../../components/Paginate";
 
 const books = ({ data }) => {
   return (
@@ -43,6 +44,7 @@ const books = ({ data }) => {
                 )): ""}
             </div>
           </div>
+          <Paginate pageCount={data.books.totalPages} />
         </div>
       </section>
     </div>

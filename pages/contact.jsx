@@ -19,6 +19,10 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!inputs.name || !inputs.email || !inputs.message || !inputs.subject) {
+      setError("Enter all fields");
+      return
+    }
     setLoading(true);
     setError("");
     setSuccess(false);

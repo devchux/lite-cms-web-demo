@@ -2,6 +2,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import axios from "axios"
 import Link from "next/link";
 import slug from "slug";
+import Paginate from "../../components/Paginate";
 
 const audios = ({ subjects: { subjects } }) => {
   return (
@@ -22,6 +23,7 @@ const audios = ({ subjects: { subjects } }) => {
             </div>
           )) : ""}
           </div>
+          <Paginate pageCount={subjects.totalPages} />
         </div>
       </section>
     </div>

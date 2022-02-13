@@ -2,6 +2,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import axios from "axios"
 import Link from "next/link";
 import slug from "slug";
+import Paginate from "../../components/Paginate";
 
 const videos = ({ subjects: { subjects } }) => {
   return (
@@ -22,6 +23,7 @@ const videos = ({ subjects: { subjects } }) => {
             </div>
           )) : ""}
           </div>
+          <Paginate pageCount={subjects.totalPages} />
         </div>
       </section>
     </div>

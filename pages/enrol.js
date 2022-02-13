@@ -1,7 +1,50 @@
 import Image from "next/image";
+import { useState } from "react";
 import Breadcrumb from "../components/Breadcrumb";
 
-const enrol = () => {
+const Enrol = () => {
+  const [inputs, setInputs] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    classTitle: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (key, value) => {
+    setInputs({ ...inputs, [key]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!inputs.name || !inputs.email || !inputs.classTitle || !inputs.phoneNumber) {
+      setError("Fill all the fields");
+      return
+    }
+    setLoading(true);
+    setError("");
+    setSuccess(false);
+    try {
+      await axios.post("http://localhost:8000/api/classes", inputs);
+      setSuccess(true);
+      setLoading(false);
+      setInputs({
+        name: "",
+        email: "",
+        phoneNumber: "",
+        classTitle: "",
+      });
+    } catch (error) {
+      if (error.response) {
+        setError(error.response.data);
+      } else {
+        console.error(error);
+        setError(error.message);
+      }
+    }
+  };
   return (
     <div className="enrol-page">
       <Breadcrumb title="Class Registration" />
@@ -25,7 +68,7 @@ const enrol = () => {
                 way to approach life, and by providing constant assistance of an
                 experienced person to them.
               </p>
-              <p>
+              <div>
                 Also, we mentor people by encouraging them to undergo our unique
                 mentorship classes which cover five major themes:
                 <ol>
@@ -35,7 +78,7 @@ const enrol = () => {
                   <li>Maximizing talents, gifts and potentials</li>
                   <li>Transforming the society</li>
                 </ol>
-              </p>
+              </div>
               <p>
                 The classes are organized periodically in our offices, schools,
                 and institutions, and remotely on YouTube, WhatsApp, Instagram,
@@ -155,66 +198,100 @@ const enrol = () => {
       </section>
       <section id="contact" className="container contact" data-aos="fade-up">
         <h3 className="my-5">Fill the form to enrol</h3>
-        <form method="post" role="form" className="w-50 php-email-form">
+        <form method="post" role="form" onSubmit={handleSubmit} className="w-50 php-email-form">
           <div className="form-group">
             <input
+              required
               type="text"
               className="form-control"
               name="name"
               placeholder="Enter Full Name"
+              onChange={({ target: { value }}) => handleChange('name', value)}
             />
           </div>
           <br />
           <div className="form-group">
             <input
+              required
               type="email"
               className="form-control"
               name="email"
               placeholder="name@example.com"
+              onChange={({ target: { value }}) => handleChange('email', value)}
             />
           </div>
           <br />
           <div className="form-group">
             <input
+              required
               type="tel"
               className="form-control"
               name="phoneNumber"
               placeholder="Enter Phone Number"
+              onChange={({ target: { value }}) => handleChange('phoneNumber', value)}
             />
           </div>
           <br />
           <div className="form-group">
-          <label>Select class:</label><br /><br />
+            <label>Select class:</label>
+            <br />
+            <br />
             <input
+              required
               type="radio"
               name="classTitle"
               style={{ height: "fit-content" }}
+              checked={inputs.classTitle === "counselling"}
+              onChange={() => handleChange('classTitle', 'counselling')}
             />{" "}
             Counselling
-            <br /><br />
+            <br />
+            <br />
             <input
+              required
               type="radio"
               name="classTitle"
               style={{ height: "fit-content" }}
+              checked={inputs.classTitle === "guidance"}
+              onChange={() => handleChange('classTitle', 'guidance')}
             />{" "}
             Guidance
-            <br /><br />
+            <br />
+            <br />
             <input
+              required
               type="radio"
               name="classTitle"
               style={{ height: "fit-content" }}
+              checked={inputs.classTitle === "teaching"}
+              onChange={() => handleChange('classTitle', 'teaching')}
             />{" "}
             Teaching
-            <br /><br />
+            <br />
+            <br />
             <input
+              required
               type="radio"
               name="classTitle"
               style={{ height: "fit-content" }}
+              checked={inputs.classTitle === "mentorship"}
+              onChange={() => handleChange('classTitle', 'mentorship')}
             />{" "}
             Mentorship
             <br />
           </div>
           <br />
+          <div className="my-3">
+            {loading ? <div className="loading">Loading</div> : ""}
+            {error ? <div className="error-message">{error}</div> : ""}
+            {success ? (
+              <div className="sent-message">
+                Form has been sent. Thank you!
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
           <div className="text-center">
             <button type="submit">Register</button>
           </div>
@@ -224,4 +301,4 @@ const enrol = () => {
   );
 };
 
-export default enrol;
+export default Enrol;

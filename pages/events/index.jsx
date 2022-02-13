@@ -1,6 +1,7 @@
 import Image from "next/image";
 import axios from "axios";
 import Breadcrumb from "../../components/Breadcrumb";
+import Paginate from "../../components/Paginate";
 
 const events = ({ data: { events } }) => {
   return (
@@ -48,22 +49,9 @@ const events = ({ data: { events } }) => {
                 </div>
               )): ""}
           </div>
+          <Paginate pageCount={events.totalPages} />
         </div>
       </section>
-
-      <div className="blog-pagination">
-        <ul className="justify-content-center">
-          <li>
-            <a href="#">1</a>
-          </li>
-          <li className="active">
-            <a href="#">2</a>
-          </li>
-          <li>
-            <a href="#">3</a>
-          </li>
-        </ul>
-      </div>
     </div>
   );
 };
