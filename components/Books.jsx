@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Books = ({ books: { data } }) => {
   return (
@@ -32,9 +33,9 @@ const Books = ({ books: { data } }) => {
                       <div className="books-info">
                         <h4>{book.title.toUpperCase()}</h4>
                         <div className="books-links">
-                          <a href={`/books/${book.id}`} title="More Details">
+                          <Link href={`/books/${book.id}`} title="More Details" passHref>
                             <i className="bx bx-link"></i>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>

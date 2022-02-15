@@ -3,6 +3,7 @@ import axios from "axios";
 import parse from "html-react-parser";
 import Breadcrumb from "../../components/Breadcrumb";
 import Paginate from "../../components/Paginate";
+import Link from "next/link";
 
 const Articles = ({ posts, recentPosts }) => {
   return (
@@ -27,7 +28,7 @@ const Articles = ({ posts, recentPosts }) => {
                       </div>
 
                       <h2 className="entry-title">
-                        <a href={`/articles/${post.slug}`}>{post.title}</a>
+                        <Link href={`/articles/${post.slug}`}>{post.title}</Link>
                       </h2>
 
                       <div className="entry-meta">
@@ -63,7 +64,7 @@ const Articles = ({ posts, recentPosts }) => {
                           )}
                         </p>
                         <div className="read-more">
-                          <a href={`/articles/${post.slug}`}>Read More</a>
+                          <Link href={`/articles/${post.slug}`}>Read More</Link>
                         </div>
                       </div>
                     </article>
@@ -91,9 +92,9 @@ const Articles = ({ posts, recentPosts }) => {
                           />
                           <div>
                             <h4>
-                              <a href={`/articles/${post.slug}`}>
+                              <Link href={`/articles/${post.slug}`}>
                                 {post.title}
-                              </a>
+                              </Link>
                             </h4>
                             <time
                               dateTime={new Date(post.createdAt).toDateString()}

@@ -1,5 +1,6 @@
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 
 const Event = ({ events }) => {
   return (
@@ -33,7 +34,7 @@ const Event = ({ events }) => {
                     </div>
 
                     <h3>
-                      <a href={`/events/${event.id}`}>{event.title}</a>
+                      <Link href={`/events/${event.id}`}>{event.title}</Link>
                     </h3>
                     <div className="trainer d-flex justify-content-between align-items-center">
                       <div className="trainer-profile d-flex align-items-center">

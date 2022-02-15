@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Articles = ({ articles }) => {
   return (
@@ -29,7 +30,7 @@ const Articles = ({ articles }) => {
                     </div>
 
                     <h2 className="entry-title">
-                      <a href={`/articles/${post.slug}`}>{post.title}</a>
+                      <Link href={`/articles/${post.slug}`}>{post.title}</Link>
                     </h2>
 
                     <div className="entry-meta">
@@ -57,7 +58,7 @@ const Articles = ({ articles }) => {
                     <div className="entry-content">
                       <p></p>
                       <div className="read-more">
-                        <a href={`/articles/${post.slug}`}>Read More</a>
+                        <Link href={`/articles/${post.slug}`}>Read More</Link>
                       </div>
                     </div>
                   </article>

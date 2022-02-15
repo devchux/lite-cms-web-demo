@@ -2,6 +2,7 @@ import Image from "next/image";
 import axios from "axios";
 import Breadcrumb from "../../components/Breadcrumb";
 import Paginate from "../../components/Paginate";
+import Link from "next/link";
 
 const events = ({ data: { events } }) => {
   return (
@@ -37,7 +38,7 @@ const events = ({ data: { events } }) => {
                       </div>
 
                       <h3>
-                        <a href={`/events/${event.id}`}>{event.title}</a>
+                        <Link href={`/events/${event.id}`}>{event.title}</Link>
                       </h3>
                       <div className="trainer d-flex justify-content-between align-items-center">
                         <div className="trainer-profile d-flex align-items-center">

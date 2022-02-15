@@ -5,6 +5,7 @@ import axios from "axios";
 import Disqus from "disqus-react";
 import Breadcrumb from "../../components/Breadcrumb";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const Speech = dynamic(() => import("react-speech"), { ssr: false });
 
@@ -175,9 +176,9 @@ const BlogDetail = ({ data, recentPosts }) => {
                           />
                           <div>
                             <h4>
-                              <a href={`/articles/${post.slug}`}>
+                              <Link href={`/articles/${post.slug}`}>
                                 {post.title}
-                              </a>
+                              </Link>
                             </h4>
                             <time
                               dateTime={new Date(post.createdAt).toDateString()}
