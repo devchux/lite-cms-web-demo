@@ -6,30 +6,30 @@ const Count = () => {
           <div className="col-lg-3 col-6 text-center">
             <span
               data-purecounter-start="0"
-              data-purecounter-end="1232"
+              data-purecounter-end="100"
               data-purecounter-duration="1"
               className="purecounter"
-            ></span>
+            >100</span>
             <p>Students</p>
           </div>
 
           <div className="col-lg-3 col-6 text-center">
             <span
               data-purecounter-start="0"
-              data-purecounter-end="64"
+              data-purecounter-end="11"
               data-purecounter-duration="1"
               className="purecounter"
-            ></span>
-            <p>Courses</p>
+            >11</span>
+            <p>Programs</p>
           </div>
 
           <div className="col-lg-3 col-6 text-center">
             <span
               data-purecounter-start="0"
-              data-purecounter-end="42"
+              data-purecounter-end="22"
               data-purecounter-duration="1"
               className="purecounter"
-            ></span>
+            >22</span>
             <p>Events</p>
           </div>
 
@@ -39,8 +39,8 @@ const Count = () => {
               data-purecounter-end="15"
               data-purecounter-duration="1"
               className="purecounter"
-            ></span>
-            <p>Trainers</p>
+            >15</span>
+            <p>Mentors</p>
           </div>
         </div>
       </div>

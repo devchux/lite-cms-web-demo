@@ -1,6 +1,7 @@
 import axios from "axios";
 import ErrorPage from "next/error";
 import Breadcrumb from "../../components/Breadcrumb";
+import Paginate from "../../components/Paginate";
 
 const videoList = ({ data }) => {
   if (!data) return <ErrorPage statusCode={404} />;
@@ -41,6 +42,8 @@ const videoList = ({ data }) => {
                 ))
               : ""}
           </div>
+
+          <Paginate pageCount={data.videos?.totalPages} />
         </div>
       </section>
     </div>

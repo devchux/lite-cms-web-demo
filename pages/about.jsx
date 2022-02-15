@@ -26,12 +26,17 @@ const About = () => {
               <h3>WHAT WE DO</h3>
               <br />
               <p className="">
-                OYDEI organizes a weekly public and community youth development
-                and counselling programme for youths in her Centre for Youth
-                Development and Counselling at Nsukka, Enugu State Nigeria.
-                Livestreams, audio, video, and transcribed resources are often
-                made available to youths who cannot attend the programme
-                physically. <br />
+                OTU Youth Development and Empowerment Initiative (OYDEI) is a
+                non-profit organization that provides confidential,
+                professional, and trusted counselling services to children,
+                youths and adults on an individual and collective basis. OYDEI
+                uses transformative counselling techniques to solve human
+                problems. OYDEI provides a way out for people, allowing them to
+                release negative emotions and start their healing process. OYDEI
+                offers professional therapeutic intervention to help with
+                personal, educational, vocational and spiritual problems and
+                challenges.
+                <br />
                 <br />
                 To sustain, expand and enlarge these activities, OYDEI has been
                 training volunteers to work with the youths. Also, peer

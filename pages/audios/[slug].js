@@ -1,18 +1,16 @@
 import axios from "axios";
 import ErrorPage from "next/error";
-import { useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
 import Breadcrumb from "../../components/Breadcrumb";
+import Paginate from "../../components/Paginate";
 
 const AudioList = ({ data }) => {
-  const [error, setError] = useState("");
   if (!data) return <ErrorPage statusCode={404} />;
   return (
     <div className="audio-list-page">
       <Breadcrumb title="Audios" />
       <section id="blog" className="blog">
         <div className="container" data-aos="fade-up">
-          {error ? <div className="error-message">{error}</div> : ""}
           <div className="row">
             {data.audios?.data.length
               ? data.audios.data.map((audio) => (
@@ -80,6 +78,8 @@ const AudioList = ({ data }) => {
                 ))
               : ""}
           </div>
+
+          <Paginate pageCount={data.audios?.totalPages} />
         </div>
       </section>
     </div>

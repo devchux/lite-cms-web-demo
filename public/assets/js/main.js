@@ -56,6 +56,10 @@
     onscroll(document, toggleBacktotop);
   }
 
+  on("click", ".back-to-top", function (e) {
+    window.scrollTo(0, 0);
+  });
+
   /**
    * Mobile nav toggle
    */

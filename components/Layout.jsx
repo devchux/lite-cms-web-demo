@@ -8,10 +8,22 @@ const Layout = ({ children }) => {
   return (
     <Fragment>
       <Head>
-        <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="" name="description" />
-        <meta content="" name="keywords" />
+        <meta
+          name="title"
+          content="OTU Youth Development and Empowerment Initiative"
+        />
+        <meta
+          name="description"
+          content="OYDEI provides confidential, professional, and trusted counselling services to children, youths and adults on an individual and collective basis"
+        />
+        <meta
+          name="keywords"
+          content="NGO, OTU, OYDEI, YEDI, Foundation, Non Profit Organization, mentorship, counselling, teaching, guidance, youth, empowerment, development, initiative, children, adult"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
       </Head>
       <Header />
       {children}

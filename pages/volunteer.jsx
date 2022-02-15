@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState } from "react";
 import Breadcrumb from "../components/Breadcrumb";
 
 const Volunteer = () => {
@@ -54,9 +55,16 @@ const Volunteer = () => {
       <Breadcrumb title="Become A Volunteer" />
       <section
         id="contact"
-        className="container my-5 d-flex justify-content-center align-items-center contact"
+        className="container my-5 d-flex flex-column justify-content-center align-items-center contact"
         data-aos="fade-up"
       >
+        <p>
+          We provide confidential, professional, and trusted counseling services
+          to children, adults and youths. We are looking for committed volunteers who
+          have shown an exceptional level of dedication, innovation, teamwork,
+          excellence, integrity, and equality. Please complete this form if you
+          believe your values align with ours.
+        </p>
         <form
           method="post"
           role="form"

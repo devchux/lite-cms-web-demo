@@ -1,7 +1,74 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useState } from "react";
+
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+
+const NewsletterForm = ({ status, message, onValidated }) => {
+  const [emailValue, setEmailValue] = useState("");
+  const [statusValue, setStatusValue] = useState("");
+  const [isEmailValid, setEmailValid] = useState(true);
+
+  useEffect(() => {
+    setStatusValue(status);
+    if (status === "success") {
+      setEmailValue("");
+      setTimeout(() => {
+        setStatusValue("");
+      }, 2000);
+    }
+  }, [status]);
+
+  const submit = () => {
+    const isEmailValid =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        emailValue.toLowerCase()
+      );
+    setEmailValid(isEmailValid);
+    if (isEmailValid) {
+      onValidated({ EMAIL: emailValue });
+    }
+  };
+
+  return (
+    <>
+      {statusValue === "sending" && <div className="loading">Sending...</div>}
+      {(statusValue === "error" || !isEmailValid) && (
+        <div className="error-message">
+          {isEmailValid
+            ? "Already subscribed to our mailing list!"
+            : "Invalid email address!"}
+        </div>
+      )}
+      {statusValue === "success" && (
+        <div className="success-message">Thanks for subscribing!</div>
+      )}
+      <h4>Join Our Newsletter</h4>
+      <p>
+        Subscribe to our news letter to get first hand information about our
+        events and more.
+      </p>
+      <form onSubmit={submit} method="post">
+        <input
+          type="email"
+          name="email"
+          required
+          onChange={(e) => setEmailValue(e.target.value)}
+        />
+        <input
+          type="submit"
+          disabled={!emailValue || status === "sending"}
+          value="Subscribe"
+        />
+      </form>
+    </>
+  );
+};
 
 const Footer = () => {
+  const url =
+    "https://myclinify.us2.list-manage.com/subscribe/post?u=27b5a34cec7f78e32543f829a&id=47db04cdef";
   return (
     <footer id="footer">
       <div className="footer-top">
@@ -70,15 +137,18 @@ const Footer = () => {
             </div>
 
             <div className="col-lg-4 col-md-6 footer-newsletter">
-              <h4>Join Our Newsletter</h4>
-              <p>
-                Subscribe to our news letter to get first hand information about
-                our events and more.
-              </p>
-              <form action="" method="post">
-                <input type="email" name="email" />
-                <input type="submit" value="Subscribe" />
-              </form>
+              <MailchimpSubscribe
+                url={url}
+                render={({ subscribe, status, message }) => {
+                  return (
+                    <NewsletterForm
+                      status={status}
+                      message={message}
+                      onValidated={(formData) => subscribe(formData)}
+                    />
+                  );
+                }}
+              />
             </div>
           </div>
         </div>
