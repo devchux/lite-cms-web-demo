@@ -1,4 +1,4 @@
-import Image from "next/image";
+import axios from "axios";
 import { useState } from "react";
 import Breadcrumb from "../components/Breadcrumb";
 
@@ -42,6 +42,7 @@ const Volunteer = () => {
         message: "",
       });
     } catch (error) {
+      setLoading(false);
       if (error.response) {
         setError(error.response.data);
       } else {

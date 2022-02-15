@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Breadcrumb from "../components/Breadcrumb";
+import axios from "axios";
 
 const Enrol = () => {
   const [inputs, setInputs] = useState({
@@ -37,6 +38,7 @@ const Enrol = () => {
         classTitle: "",
       });
     } catch (error) {
+      setLoading(false);
       if (error.response) {
         setError(error.response.data);
       } else {

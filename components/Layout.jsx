@@ -34,7 +34,6 @@ const Layout = ({ children }) => {
       </a>
       <Script src="/assets/vendor/aos/aos.js" />
       <Script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" />
-      <Script src="/assets/vendor/php-email-form/validate.js" />
       <Script src="/assets/vendor/purecounter/purecounter.js" />
       <Script src="/assets/vendor/swiper/swiper-bundle.min.js" />
       <Script src="https://popupsmart.com/freechat.js"></Script>

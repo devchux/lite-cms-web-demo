@@ -40,6 +40,7 @@ const Contact = () => {
         message: "",
       });
     } catch (error) {
+      setLoading(false);
       if (error.response) {
         setError(error.response.data);
       } else {
